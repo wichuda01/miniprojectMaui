@@ -1,0 +1,29 @@
+[
+  {
+    "course_id": "1204302",
+    "course_name": "Algorithm Analysis and Design",
+    "year": 2024,
+    "term": 3,
+    "credits": 3,
+    "prerequisites": [],
+    "instructor": "Dr. Emily Johnson"
+  },
+  {
+    "course_id": "1204102",
+    "course_name": "Data Structures and Algorithms",
+    "year": 2024,
+    "term": 3,
+    "credits": 3,
+    "prerequisites": [],
+    "instructor": "Dr. Jane Smith"
+  },
+  {
+    "course_id": "1204103",
+    "course_name": "Database Systems",
+    "year": 2024,
+    "term": 3,
+    "credits": 3,
+    "prerequisites": [],
+    "instructor": "Dr. Emily Johnson"
+  }
+]
