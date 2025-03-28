@@ -27,6 +27,7 @@ public partial class ProfileViewmodel : ObservableObject
             if (_receivedStudent != value)
             {
                 _receivedStudent = value;
+                OnPropertyChanged(nameof(ReceivedStudent)); 
                 OnReceivedStudentChanged(value);
             }
         }

@@ -46,6 +46,7 @@ using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using miniproject.Model;
+using miniproject.pages;
 
 namespace miniproject.Viewmodel;
 
@@ -115,51 +116,6 @@ public partial class HomeViewmodel : ObservableObject
         Course = new ObservableCollection<Courses>(Courses.FromJson(c_contents));
     }
 
-    // [RelayCommand]
-    // public void AddCourse(string cid)
-    // {
-    //     if (CurrentStudent == null || string.IsNullOrEmpty(cid)) return;
-
-    //     var courseToAdd = Course.FirstOrDefault(c => c.CourseId == cid);
-    //     if (courseToAdd != null && CurrentStudent.CoursesEnrolled.All(c => c.CourseId != cid))
-    //     {
-    //         var newCourse = new CoursesEnrolled
-    //         {
-    //             CourseId = courseToAdd.CourseId,
-    //             CourseName = courseToAdd.CourseName,
-    //             Year = courseToAdd.Year,
-    //             Term = courseToAdd.Term,
-    //             Credits = courseToAdd.Credits,
-    //             Grade = "",
-    //             Instructor = courseToAdd.Instructor
-    //         };
-
-    //         CurrentStudent.CoursesEnrolled.Add(newCourse);
-    //         _originalStudentData.CoursesEnrolled.Add(newCourse);
-    //         Student = new ObservableCollection<Students> { CurrentStudent };
-
-    //         // Notify the UI to refresh
-    //         OnPropertyChanged(nameof(Student));
-    //     }
-    // }
-
-    // [RelayCommand]
-    // public void DropCourse(string cid)
-    // {
-    //     if (CurrentStudent == null || string.IsNullOrEmpty(cid)) return;
-
-    //     var courseToRemove = CurrentStudent.CoursesEnrolled.FirstOrDefault(c => c.CourseId == cid);
-    //     if (courseToRemove != null)
-    //     {
-    //         CurrentStudent.CoursesEnrolled.Remove(courseToRemove);
-    //         _originalStudentData.CoursesEnrolled.Remove(courseToRemove);
-    //         Student = new ObservableCollection<Students> { CurrentStudent };
-
-    //         // Notify the UI to refresh
-    //         OnPropertyChanged(nameof(Student));
-    //     }
-    // }
-
 
     [RelayCommand]
     public void SearchCourse()
@@ -172,6 +128,21 @@ public partial class HomeViewmodel : ObservableObject
         {
             Course = new ObservableCollection<Courses>(Course.Where(c =>
                 c.CourseName.Contains(courseName, StringComparison.OrdinalIgnoreCase)));
+        }
+    }
+
+    [ObservableProperty]
+    string router = nameof(RegisterPage);
+
+    [RelayCommand]
+    async Task GotoPageRegister(string page){
+        if (CurrentStudent != null)
+        {
+            var parameters = new Dictionary<string, object>
+            {
+                { "StudentData", _originalStudentData }
+            };
+            await Shell.Current.GoToAsync(page, parameters);
         }
     }
 

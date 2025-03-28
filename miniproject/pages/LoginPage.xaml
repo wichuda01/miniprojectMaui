@@ -46,7 +46,7 @@
                     Margin="0,10,0,0"
                     HeightRequest="50"
                     CornerRadius="25"
-                    BackgroundColor="blue"
+                    BackgroundColor="#181516"
                     Text="Login"
                     TextColor="White"
                     FontAttributes="Bold"

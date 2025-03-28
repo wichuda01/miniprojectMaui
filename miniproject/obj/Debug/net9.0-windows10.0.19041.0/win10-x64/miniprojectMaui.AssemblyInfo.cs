@@ -17,7 +17,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("miniprojectMaui")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+192026e88274e763667c6e3cc3f1a15b5e7294c4")]
 [assembly: System.Reflection.AssemblyProductAttribute("miniprojectMaui")]
 [assembly: System.Reflection.AssemblyTitleAttribute("miniprojectMaui")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

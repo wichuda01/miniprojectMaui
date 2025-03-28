@@ -20,12 +20,24 @@
                             StrokeThickness="1"
                             BackgroundColor="#F5F5F5">
                         <HorizontalStackLayout Spacing="10">
-                            <Image Source="{Binding ImgUrl}"
+                            <!-- <Image Source="{Binding ImgUrl}"
                                    Aspect="AspectFill"
                                    HeightRequest="150"
                                    WidthRequest="150"
                                    BackgroundColor="LightGray"
-                                   Clip="RoundRectangle 30"/>
+                                   Clip="RoundRectangle 30"/> -->
+
+                            <Image Aspect="AspectFill"
+                                   HeightRequest="150"
+                                   WidthRequest="150"
+                                   BackgroundColor="LightGray"
+                                   Clip="RoundRectangle 30">
+                                <Image.Source>
+                                    <UriImageSource Uri="{Binding ImgUrl}"
+                                                    CachingEnabled="True"
+                                                    CacheValidity="2"/>
+                                </Image.Source>
+                            </Image>
 
                             <VerticalStackLayout Spacing="5">
                                 <Label Text="{Binding StudentId, StringFormat='รหัสนิสิต: {0}'}"
@@ -67,7 +79,7 @@
                                 </HorizontalStackLayout>
                                 <HorizontalStackLayout Spacing="10">
                                     <Button Text="Home"
-                                            BackgroundColor="#FF0066FF"
+                                            BackgroundColor="#181516"
                                             TextColor="White"
                                             FontSize="14"
                                             FontAttributes="Bold"
@@ -77,7 +89,7 @@
                                             CommandParameter="HomePage"/>
 
                                     <Button Text="ลงทะเบียน"
-                                            BackgroundColor="#008000"
+                                            BackgroundColor="#A9411D"
                                             TextColor="White"
                                             FontSize="14"
                                             FontAttributes="Bold"

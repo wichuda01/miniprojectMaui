@@ -23,14 +23,14 @@
                                 Margin="0,20,0,0">
                             <HorizontalStackLayout Spacing="10">
                                 <Label Text="{Binding StudentId, StringFormat='ผู้ใช้งาน : {0}'}"
-                                        FontSize="16"
-                                        FontAttributes="Bold"/>
+                                       FontSize="16"
+                                       FontAttributes="Bold"/>
                                 <Label Text="{Binding FirstName}"
-                                        FontSize="16"
-                                        FontAttributes="Bold"/>
+                                       FontSize="16"
+                                       FontAttributes="Bold"/>
                                 <Label Text="{Binding LastName}"
-                                        FontSize="16"
-                                        FontAttributes="Bold"/>
+                                       FontSize="16"
+                                       FontAttributes="Bold"/>
                             </HorizontalStackLayout>
                         </Border>
                     </VerticalStackLayout>
@@ -45,25 +45,25 @@
                 BackgroundColor="#F5F5F5"
                 Margin="0,5">
             <HorizontalStackLayout Spacing="10"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center"
-                    Padding="0,2">
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"
+                                   Padding="0,2">
                 <Label Text="ค้นหาชื่อวิชา"
-                        FontSize="14"
-                        FontAttributes="Bold"
-                        TextColor="Black"
-                        VerticalOptions="Center"/>
+                       FontSize="14"
+                       FontAttributes="Bold"
+                       TextColor="Black"
+                       VerticalOptions="Center"/>
                 <Entry Placeholder="พิมพ์ชื่อวิชาที่ต้องการค้นหา..."
-                        TextColor="Black"
-                        WidthRequest="250"
-                        HeightRequest="40"
-                        PlaceholderColor="Gray"
-                        BackgroundColor="White"
-                        ClearButtonVisibility="WhileEditing"
-                        Text="{Binding CourseName}"/>
+                       TextColor="Black"
+                       WidthRequest="250"
+                       HeightRequest="40"
+                       PlaceholderColor="Gray"
+                       BackgroundColor="White"
+                       ClearButtonVisibility="WhileEditing"
+                       Text="{Binding CourseName}"/>
                 <Button Text="ค้นหา"
                         Command="{Binding SearchCourseCommand}"
-                        BackgroundColor="#2196F3"
+                        BackgroundColor="#181516"
                         TextColor="White"
                         FontAttributes="Bold"
                         CornerRadius="5"
@@ -71,78 +71,76 @@
                         HeightRequest="40"/>
             </HorizontalStackLayout>
         </Border>
+        <!-- วิชาที่เปิดให้ลงทะเบียน -->
+        <Border Padding="15"
+                StrokeShape="RoundRectangle 15"
+                Stroke="LightGray"
+                StrokeThickness="1"
+                BackgroundColor="White"
+                Margin="0,5">
+            <VerticalStackLayout Spacing="10">
+                <Label Text="📝 วิชาที่เปิดให้ลงทะเบียน"
+                       FontSize="16"
+                       FontAttributes="Bold"
+                       TextColor="#333333"
+                       HorizontalOptions="Center"/>
+                <CollectionView ItemsSource="{Binding Course}"
+                                HeightRequest="400">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="model:Courses">
+                            <Border Padding="10"
+                                    StrokeShape="RoundRectangle 10"
+                                    Stroke="LightGray"
+                                    StrokeThickness="1"
+                                    BackgroundColor="#F9F9F9"
+                                    Margin="5">
+                                <VerticalStackLayout Spacing="8">
+                                    <Label Text="{Binding CourseName, StringFormat='📖 {0}'}"
+                                           FontSize="14"
+                                           FontAttributes="Bold"
+                                           TextColor="#A9411D"/>
+                                    <Label Text="{Binding CourseId, StringFormat='รหัสวิชา: {0}'}"
+                                           FontSize="12"
+                                           TextColor="Gray"/>
+                                    <HorizontalStackLayout Spacing="10">
+                                        <Label Text="{Binding Year, StringFormat='ปี: {0}'}"
+                                               FontSize="12"
+                                               TextColor="#555555"/>
+                                        <Label Text="{Binding Term, StringFormat='เทอม: {0}'}"
+                                               FontSize="12"
+                                               TextColor="#555555"/>
+                                    </HorizontalStackLayout>
+                                    <Label Text="{Binding Credits, StringFormat='📌 หน่วยกิต: {0}'}"
+                                           FontSize="12"
+                                           TextColor="#555555"/>
+                                    <Label Text="{Binding Instructor, StringFormat='👨‍🏫 อาจารย์: {0}'}"
+                                           FontSize="12"
+                                           TextColor="#555555"/>
 
-       
-            <!-- วิชาที่ลงทะเบียน -->
-           
+                                </VerticalStackLayout>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+        </Border>
 
-            <!-- วิชาที่เปิดให้ลงทะเบียน -->
-            <Border Padding="15"
-                    StrokeShape="RoundRectangle 15"
-                    Stroke="LightGray"
-                    StrokeThickness="1"
-                    BackgroundColor="White"
-                    Margin="0,5"
-                    >
-                <VerticalStackLayout Spacing="10">
-                    <Label Text="📝 วิชาที่เปิดให้ลงทะเบียน"
-                            FontSize="16"
-                            FontAttributes="Bold"
-                            TextColor="#333333"
-                            HorizontalOptions="Center"/>
-                    <CollectionView ItemsSource="{Binding Course}"
-                            HeightRequest="400">
-                        <CollectionView.ItemTemplate>
-                            <DataTemplate x:DataType="model:Courses">
-                                <Border Padding="10"
-                                        StrokeShape="RoundRectangle 10"
-                                        Stroke="LightGray"
-                                        StrokeThickness="1"
-                                        BackgroundColor="#F9F9F9"
-                                        Margin="5">
-                                    <VerticalStackLayout Spacing="8">
-                                        <Label Text="{Binding CourseName, StringFormat='📖 {0}'}"
-                                                FontSize="14"
-                                                FontAttributes="Bold"
-                                                TextColor="DarkGreen"/>
-                                        <Label Text="{Binding CourseId, StringFormat='รหัสวิชา: {0}'}"
-                                                FontSize="12"
-                                                TextColor="Gray"/>
-                                        <HorizontalStackLayout Spacing="10">
-                                            <Label Text="{Binding Year, StringFormat='ปี: {0}'}"
-                                                    FontSize="12"
-                                                    TextColor="#555555"/>
-                                            <Label Text="{Binding Term, StringFormat='เทอม: {0}'}"
-                                                    FontSize="12"
-                                                    TextColor="#555555"/>
-                                        </HorizontalStackLayout>
-                                        <Label Text="{Binding Credits, StringFormat='📌 หน่วยกิต: {0}'}"
-                                                FontSize="12"
-                                                TextColor="#555555"/>
-                                        <Label Text="{Binding Instructor, StringFormat='👨‍🏫 อาจารย์: {0}'}"
-                                                FontSize="12"
-                                                TextColor="#555555"/>
-                                        <Button HorizontalOptions="Start"
-                                                Text="ลงทะเบียน"
-                                                Command="{Binding AddCourseCommand}"
-                                                CommandParameter="{Binding CourseId}"
-                                                BackgroundColor="DarkGreen"
-                                                TextColor="White"
-                                                CornerRadius="10"
-                                                WidthRequest="100"/>
-                                    </VerticalStackLayout>
-                                </Border>
-                            </DataTemplate>
-                        </CollectionView.ItemTemplate>
-                    </CollectionView>
-                </VerticalStackLayout>
-            </Border>
-        
         <HorizontalStackLayout Spacing="10"
-                HorizontalOptions="Center">
-
+                               HorizontalOptions="Center">
+            <Button HorizontalOptions="Start"
+                    Text="ลงทะเบียน"
+                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:HomeViewmodel}}, Path=GotoPageCommand}"
+                    CommandParameter="RegisterPage"
+                    BackgroundColor="#181516"
+                    TextColor="White"
+                    FontSize="14"
+                    FontAttributes="Bold"
+                    WidthRequest="120"
+                    HeightRequest="50"
+                    CornerRadius="10"
+                    />
             <Button Text="Profile"
-                    BackgroundColor="#008000"
+                    BackgroundColor="#A9411D"
                     TextColor="White"
                     FontSize="14"
                     FontAttributes="Bold"
